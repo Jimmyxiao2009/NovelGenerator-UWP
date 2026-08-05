@@ -1,0 +1,52 @@
+<Page
+    x:Class="novelgen.Pages.WorldView.WorldEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{StaticResource PhoneBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource PhoneAccentBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Click="OnBackClick"
+                        Style="{StaticResource PhonePlainButtonStyle}"
+                        Foreground="White" FontSize="20" Padding="12,8" Margin="0">
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
+                <TextBlock Grid.Column="1" Text="② 世界设定 · 手动编辑" Style="{StaticResource PhoneAppHeaderTextStyle}"/>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="Editor" Margin="0,8,0,16">
+                    <TextBlock Text="（尚未生成世界设定）" x:Name="EmptyHint" FontSize="14"
+                               Foreground="{StaticResource PhoneSubtleBrush}"
+                               HorizontalAlignment="Center" Margin="0,40,0,0" Visibility="Collapsed"/>
+                </StackPanel>
+            </ScrollViewer>
+
+            <CommandBar Grid.Row="1" Background="{StaticResource PhoneAccentBrush}">
+                <AppBarButton Icon="Add" Label="加人物" Click="OnAddCharacterClick" Foreground="White"/>
+                <AppBarButton Icon="Add" Label="加地点" Click="OnAddLocationClick" Foreground="White"/>
+                <AppBarButton Icon="Add" Label="加势力" Click="OnAddFactionClick" Foreground="White"/>
+                <AppBarButton Icon="Add" Label="加规则" Click="OnAddRuleClick" Foreground="White"/>
+                <AppBarSeparator Foreground="White"/>
+                <AppBarButton Icon="Save" Label="保存" Click="OnSaveClick" Foreground="White"/>
+            </CommandBar>
+        </Grid>
+    </Grid>
+</Page>

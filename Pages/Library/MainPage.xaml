@@ -1,0 +1,156 @@
+<Page
+    x:Class="novelgen.Pages.Library.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:novelgen.Pages.Library"
+    xmlns:models="using:novelgen.Models"
+    Background="{StaticResource PhoneBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 顶部应用栏 -->
+        <Border Grid.Row="0" Background="{StaticResource PhoneAccentBrush}">
+            <TextBlock Text="小说生成器" Style="{StaticResource PhoneAppHeaderTextStyle}"/>
+        </Border>
+
+        <Pivot Grid.Row="1" x:Name="RootPivot" Background="{StaticResource PhoneBackgroundBrush}">
+            <PivotItem>
+                <PivotItem.Header>
+                    <TextBlock Text="全部" FontSize="20"/>
+                </PivotItem.Header>
+                <Grid>
+                    <ListView x:Name="AllList" IsItemClickEnabled="True" ItemClick="OnNovelClick"
+                              SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Novel">
+                                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="{x:Bind Title}" Style="{StaticResource PhoneListItemTitleStyle}"/>
+                                            <TextBlock Text="{x:Bind Genre}" Style="{StaticResource PhoneListItemSubtitleStyle}"/>
+                                            <TextBlock Text="{x:Bind StateLabel}" Style="{StaticResource PhoneListItemSubtitleStyle}"/>
+                                            <TextBlock Text="{x:Bind UserPrompt}" Style="{StaticResource PhoneListItemDescriptionStyle}"
+                                                       TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="8,0,0,0">
+                                            <Button Tag="{x:Bind}" Click="OnEnterClick" Content="进入 →"
+                                                    Style="{StaticResource PhoneAccentButtonStyle}"
+                                                    MinWidth="72" FontSize="14" Margin="0,0,0,6"/>
+                                            <Button Tag="{x:Bind}" Click="OnDeleteClick" Content="删除"
+                                                    MinWidth="72" FontSize="13" Padding="12,4"
+                                                    HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <TextBlock x:Name="EmptyHint" Text="点下方 ➕ 创建你的第一部小说"
+                               Style="{StaticResource PhoneListItemSubtitleStyle}"
+                               Foreground="{StaticResource PhoneSubtleBrush}"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem>
+                <PivotItem.Header>
+                    <TextBlock Text="生成中" FontSize="20"/>
+                </PivotItem.Header>
+                <Grid>
+                    <ListView x:Name="ActiveList" IsItemClickEnabled="True" ItemClick="OnNovelClick"
+                              SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Novel">
+                                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="{x:Bind Title}" Style="{StaticResource PhoneListItemTitleStyle}"/>
+                                            <TextBlock Text="{x:Bind StateLabel}" Style="{StaticResource PhoneListItemSubtitleStyle}"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="8,0,0,0">
+                                            <Button Tag="{x:Bind}" Click="OnEnterClick" Content="进入 →"
+                                                    Style="{StaticResource PhoneAccentButtonStyle}"
+                                                    MinWidth="72" FontSize="14" Margin="0,0,0,6"/>
+                                            <Button Tag="{x:Bind}" Click="OnDeleteClick" Content="删除"
+                                                    MinWidth="72" FontSize="13" Padding="12,4"
+                                                    HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <TextBlock x:Name="ActiveEmptyHint" Text="暂无进行中的小说"
+                               Style="{StaticResource PhoneListItemSubtitleStyle}"
+                               Foreground="{StaticResource PhoneSubtleBrush}"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem>
+                <PivotItem.Header>
+                    <TextBlock Text="已完成" FontSize="20"/>
+                </PivotItem.Header>
+                <Grid>
+                    <ListView x:Name="DoneList" IsItemClickEnabled="True" ItemClick="OnNovelClick"
+                              SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Novel">
+                                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="{x:Bind Title}" Style="{StaticResource PhoneListItemTitleStyle}"/>
+                                            <TextBlock Text="{x:Bind Genre}" Style="{StaticResource PhoneListItemSubtitleStyle}"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="8,0,0,0">
+                                            <Button Tag="{x:Bind}" Click="OnEnterClick" Content="进入 →"
+                                                    Style="{StaticResource PhoneAccentButtonStyle}"
+                                                    MinWidth="72" FontSize="14" Margin="0,0,0,6"/>
+                                            <Button Tag="{x:Bind}" Click="OnDeleteClick" Content="删除"
+                                                    MinWidth="72" FontSize="13" Padding="12,4"
+                                                    HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <TextBlock x:Name="DoneEmptyHint" Text="还没有已完成的小说"
+                               Style="{StaticResource PhoneListItemSubtitleStyle}"
+                               Foreground="{StaticResource PhoneSubtleBrush}"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+
+        <!-- 底部应用栏（独立行，不再遮盖列表内容） -->
+        <CommandBar Grid.Row="2" Background="{StaticResource PhoneAccentBrush}">
+            <AppBarButton Icon="Add" Label="新建" Click="OnNewNovelClick" Foreground="White"/>
+            <AppBarButton Icon="Setting" Label="API 配置" Click="OnApiSettingsClick" Foreground="White"/>
+            <AppBarSeparator Foreground="White"/>
+            <AppBarButton x:Name="ThemeBtn" Click="OnToggleThemeClick" Foreground="White">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE708;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Icon="Refresh" Label="刷新" Click="OnRefreshClick" Foreground="White"/>
+        </CommandBar>
+    </Grid>
+</Page>

@@ -1,0 +1,84 @@
+<Page
+    x:Class="novelgen.Pages.ReviewGate1Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{StaticResource PhoneBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource PhoneAccentBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Click="OnBackClick"
+                        Style="{StaticResource PhonePlainButtonStyle}"
+                        Foreground="White" FontSize="20" Padding="12,8" Margin="0">
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
+                <TextBlock Grid.Column="1" Text="Gate #1 审查" Style="{StaticResource PhoneAppHeaderTextStyle}"/>
+            </Grid>
+        </Border>
+
+        <Pivot Grid.Row="1" Background="{StaticResource PhoneBackgroundBrush}">
+            <PivotItem>
+                <PivotItem.Header>
+                    <TextBlock Text="世界设定" FontSize="20"/>
+                </PivotItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="8,4,0,0">
+                        <Button x:Name="AiModifyWorldBtn" Content="AI 改世界" Click="OnAiModifyWorldClick"
+                                Padding="10,4" FontSize="13"/>
+                        <TextBlock x:Name="WorldStatus" VerticalAlignment="Center" Margin="10,0,0,0"
+                                   FontSize="12" Foreground="{StaticResource PhoneSubtleBrush}"/>
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="WorldText" TextWrapping="Wrap"
+                                   Style="{StaticResource PhoneListItemDescriptionStyle}"
+                                   Margin="12,8"/>
+                    </ScrollViewer>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem>
+                <PivotItem.Header>
+                    <TextBlock Text="故事骨架" FontSize="20"/>
+                </PivotItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="8,4,0,0">
+                        <Button x:Name="AiModifySkeletonBtn" Content="AI 改骨架" Click="OnAiModifySkeletonClick"
+                                Padding="10,4" FontSize="13"/>
+                        <TextBlock x:Name="SkeletonStatus" VerticalAlignment="Center" Margin="10,0,0,0"
+                                   FontSize="12" Foreground="{StaticResource PhoneSubtleBrush}"/>
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="SkeletonText" TextWrapping="Wrap"
+                                   Style="{StaticResource PhoneListItemDescriptionStyle}"
+                                   Margin="12,8"/>
+                    </ScrollViewer>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+
+        <CommandBar Grid.Row="2" Background="{StaticResource PhoneAccentBrush}">
+            <AppBarButton Icon="Refresh" Label="重做世界" Click="OnReviseWorldClick" Foreground="White"/>
+            <AppBarButton Icon="Sync" Label="重做骨架" Click="OnReviseSkeletonClick" Foreground="White"/>
+            <AppBarSeparator Foreground="White"/>
+            <AppBarButton Icon="Accept" Label="接受 →" Click="OnAcceptClick" Foreground="White"/>
+        </CommandBar>
+    </Grid>
+</Page>

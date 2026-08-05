@@ -1,0 +1,52 @@
+<Page
+    x:Class="novelgen.Pages.Generation.DirectoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{StaticResource PhoneBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource PhoneAccentBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Click="OnBackClick"
+                        Style="{StaticResource PhonePlainButtonStyle}"
+                        Foreground="White" FontSize="20" Padding="12,8" Margin="0">
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="4,0">
+                    <TextBlock x:Name="TitleText" Text="目录" Style="{StaticResource PhoneAppHeaderTextStyle}"/>
+                    <TextBlock x:Name="ProgressText" Text="" FontSize="11" Foreground="#80FFFFFF" Margin="0,-4,0,0"/>
+                </StackPanel>
+                <Button Grid.Column="2" x:Name="SaveBtn" Content="保存" Click="OnSaveClick"
+                        Style="{StaticResource PhonePlainButtonStyle}"
+                        Foreground="White" FontSize="15" Padding="12,6"/>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="VolumePanel" Margin="0,0,0,8"/>
+        </ScrollViewer>
+
+        <CommandBar Grid.Row="2" Background="{StaticResource PhoneAccentBrush}">
+            <AppBarButton Icon="Refresh" Label="重新生成" Click="OnRegenerateClick" Foreground="White"/>
+            <AppBarButton Icon="Download" Label="导出 TXT" Click="OnExportTxtClick" Foreground="White"/>
+            <AppBarButton Icon="Save" Label="导出 EPUB" Click="OnExportEpubClick" Foreground="White"/>
+            <AppBarSeparator Foreground="White"/>
+            <AppBarButton Label="首页" Click="OnHomeClick" Foreground="White">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80F;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
+    </Grid>
+</Page>

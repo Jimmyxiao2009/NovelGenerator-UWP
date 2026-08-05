@@ -1,0 +1,56 @@
+<Page
+    x:Class="novelgen.Pages.Generation.ExportPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{StaticResource PhoneBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource PhoneAccentBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Click="OnBackClick"
+                        Style="{StaticResource PhonePlainButtonStyle}"
+                        Foreground="White" FontSize="20" Padding="12,8" Margin="0">
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
+                <TextBlock Grid.Column="1" Text="⑨ 导出" Style="{StaticResource PhoneAppHeaderTextStyle}"/>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="0,8,0,32">
+                <TextBlock Text="选择格式" Style="{StaticResource PhoneSectionHeaderStyle}"/>
+                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                    <StackPanel>
+                        <RadioButton x:Name="FormatEpub" Content="EPUB 3.0（推荐，手机阅读）" GroupName="fmt" IsChecked="True"/>
+                        <RadioButton x:Name="FormatTxt"  Content="TXT（纯文本）" GroupName="fmt"/>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="生成" Style="{StaticResource PhoneSectionHeaderStyle}"/>
+                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                    <StackPanel>
+                        <ProgressBar x:Name="Progress" IsIndeterminate="True" Visibility="Collapsed"/>
+                        <TextBlock x:Name="StatusText" Style="{StaticResource PhoneListItemSubtitleStyle}" Margin="0,0,0,8"/>
+                        <Button x:Name="ExportBtn" Content="开始导出" Click="OnExportClick" Style="{StaticResource PhoneAccentButtonStyle}"/>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="导出记录" Style="{StaticResource PhoneSectionHeaderStyle}"/>
+                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                    <StackPanel>
+                        <TextBlock x:Name="RecordText" Text="（还没有导出）" Style="{StaticResource PhoneListItemSubtitleStyle}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

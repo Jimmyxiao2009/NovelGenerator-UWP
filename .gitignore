@@ -1,0 +1,55 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Publish / packaging
+[Aa]pp[Pp]ackages/
+[Pp]ackage[Ll]ayout/
+[Bb]undle[Aa]rtifacts/
+*.appx
+*.appxbundle
+*.appxupload
+*.appxsym
+*.msix
+*.msixbundle
+*.zip
+*.pri
+*.pfx
+*.cer
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Logs
+*.log
+msbuild-diag*.log
+
+# AI tooling local state
+.claude/
+.agents/
+.reasonix/
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store

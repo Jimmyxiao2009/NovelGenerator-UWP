@@ -1,0 +1,91 @@
+<Page
+    x:Class="novelgen.Pages.Settings.ApiProfileEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:novelgen.Pages.Settings"
+    Background="{StaticResource PhoneBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource PhoneAccentBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Click="OnBackClick"
+                        Style="{StaticResource PhonePlainButtonStyle}"
+                        Foreground="White" FontSize="20" Padding="12,8" Margin="0">
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
+                <TextBlock Grid.Column="1" x:Name="HeaderText" Text="API 配置" Style="{StaticResource PhoneAppHeaderTextStyle}"/>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="0,8,0,32">
+                <TextBlock Text="基本信息" Style="{StaticResource PhoneSectionHeaderStyle}"/>
+                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                    <StackPanel>
+                        <TextBlock Text="名称" Style="{StaticResource PhoneLabelStyle}"/>
+                        <TextBox x:Name="NameBox" PlaceholderText="例：DeepSeek 主力" Style="{StaticResource PhoneTextBoxStyle}"/>
+                        <TextBlock Text="Provider 类型" Style="{StaticResource PhoneLabelStyle}"/>
+                        <ComboBox x:Name="ProviderBox" HorizontalAlignment="Stretch" SelectedIndex="0" SelectionChanged="OnProviderChanged">
+                            <ComboBoxItem Content="openai" Tag="openai"/>
+                            <ComboBoxItem Content="claude" Tag="claude"/>
+                            <ComboBoxItem Content="plaa" Tag="plaa"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="连接信息" Style="{StaticResource PhoneSectionHeaderStyle}"/>
+                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                    <StackPanel>
+                        <TextBlock Text="URL" Style="{StaticResource PhoneLabelStyle}"/>
+                        <TextBox x:Name="UrlBox" PlaceholderText="https://api.deepseek.com/v1/chat/completions"
+                                 Style="{StaticResource PhoneTextBoxStyle}"/>
+                        <TextBlock Text="API Key" Style="{StaticResource PhoneLabelStyle}"/>
+                        <PasswordBox x:Name="KeyBox" PlaceholderText="sk-..." Style="{StaticResource PhonePasswordBoxStyle}"/>
+                        <TextBlock Text="Model" Style="{StaticResource PhoneLabelStyle}"/>
+                        <TextBox x:Name="ModelBox" PlaceholderText="deepseek-chat" Style="{StaticResource PhoneTextBoxStyle}"/>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="高级" Style="{StaticResource PhoneSectionHeaderStyle}"/>
+                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                    <StackPanel>
+                        <TextBlock Text="上下文窗口 Token 数（0=自动）" Style="{StaticResource PhoneLabelStyle}"/>
+                        <TextBox x:Name="ContextBox" PlaceholderText="0" InputScope="Number" Style="{StaticResource PhoneTextBoxStyle}"/>
+                        <TextBlock x:Name="ContextHint" Text="" Style="{StaticResource PhoneListItemSubtitleStyle}" Margin="0,2,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="测试" Style="{StaticResource PhoneSectionHeaderStyle}"/>
+                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                    <StackPanel>
+                        <Button x:Name="TestBtn" Content="▶ 测试连接" Click="OnTestClick"
+                                Style="{StaticResource PhoneAccentButtonStyle}"/>
+                        <ProgressBar x:Name="TestProgress" IsIndeterminate="True" Visibility="Collapsed" Margin="0,8,0,0"/>
+                        <TextBlock x:Name="TestResult" Text="" Margin="0,8,0,0" TextWrapping="Wrap"
+                                   Style="{StaticResource PhoneListItemSubtitleStyle}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource PhoneListItemBorderStyle}">
+                    <StackPanel>
+                        <Button x:Name="SaveBtn" Content="保存" Click="OnSaveClick"
+                                Style="{StaticResource PhoneAccentButtonStyle}"/>
+                        <Button x:Name="DeleteBtn" Content="删除" Click="OnDeleteClick"
+                                Style="{StaticResource PhoneDangerButtonStyle}" Margin="0,8,0,0"/>
+                        <Button x:Name="SetDefaultBtn" Content="设为默认" Click="OnSetDefaultClick"
+                                Style="{StaticResource PhonePlainButtonStyle}" Margin="0,8,0,0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

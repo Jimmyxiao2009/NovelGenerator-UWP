@@ -1,0 +1,110 @@
+<Page
+    x:Class="novelgen.Pages.Generation.ChapterGenerationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{StaticResource PhoneBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource PhoneAccentBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Click="OnBackClick"
+                        Style="{StaticResource PhonePlainButtonStyle}"
+                        Foreground="White" FontSize="20" Padding="12,8" Margin="0">
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
+                <TextBlock Grid.Column="1" Text="⑤⑥ 分章生成" Style="{StaticResource PhoneAppHeaderTextStyle}"/>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Style="{StaticResource PhoneListItemBorderStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock x:Name="ChapterTitle" Style="{StaticResource PhoneListItemTitleStyle}"/>
+                        <TextBlock x:Name="ChapterMeta" Style="{StaticResource PhoneListItemSubtitleStyle}"/>
+                    </StackPanel>
+                    <TextBlock Grid.Column="1" x:Name="WordCountText" Text="0 字"
+                               FontSize="24" FontWeight="SemiLight"
+                               Foreground="{StaticResource PhoneAccentBrush}"
+                               VerticalAlignment="Center" Margin="8,0,0,0"/>
+                </Grid>
+            </Border>
+
+            <Pivot Grid.Row="1" Background="{StaticResource PhoneBackgroundBrush}">
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock Text="正文" FontSize="20"/>
+                    </PivotItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Grid.Row="0" x:Name="ContentScroller" VerticalScrollBarVisibility="Auto">
+                            <TextBlock x:Name="ContentText" TextWrapping="Wrap" FontSize="15"
+                                       Style="{StaticResource PhoneListItemDescriptionStyle}"
+                                       Margin="12,8"/>
+                        </ScrollViewer>
+                        <ProgressBar Grid.Row="1" x:Name="StreamProgress" IsIndeterminate="True" Visibility="Collapsed"/>
+                    </Grid>
+                </PivotItem>
+
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock Text="大纲" FontSize="20"/>
+                    </PivotItem.Header>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="OutlineText" TextWrapping="Wrap"
+                                   Style="{StaticResource PhoneListItemDescriptionStyle}"
+                                   Margin="12,8"/>
+                    </ScrollViewer>
+                </PivotItem>
+
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock Text="AI 审查" FontSize="20"/>
+                    </PivotItem.Header>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="ReviewText" TextWrapping="Wrap"
+                                   Style="{StaticResource PhoneListItemDescriptionStyle}"
+                                   Margin="12,8"/>
+                    </ScrollViewer>
+                </PivotItem>
+            </Pivot>
+
+            <CommandBar Grid.Row="2" Background="{StaticResource PhoneAccentBrush}">
+                <AppBarButton x:Name="PrevBtn" Icon="Back" Label="上一章" Click="OnPrevClick" Foreground="White"/>
+                <AppBarButton x:Name="NextBtn" Icon="Forward" Label="下一章" Click="OnNextClick" Foreground="White"/>
+                <AppBarSeparator Foreground="White"/>
+                <AppBarButton x:Name="GenerateBtn" Icon="Play" Label="生成" Click="OnGenerateClick" Foreground="White"/>
+                <AppBarButton x:Name="AiModifyBtn" Label="AI 改" Click="OnAiModifyClick" Foreground="White" IsEnabled="False">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70F;"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="AcceptBtn" Icon="Accept" Label="接受 →" Click="OnAcceptClick" Foreground="White" IsEnabled="False"/>
+                <AppBarSeparator Foreground="White"/>
+                <AppBarButton Icon="Bullets" Label="目录" Click="OnDirectoryClick" Foreground="White"/>
+            </CommandBar>
+        </Grid>
+    </Grid>
+</Page>

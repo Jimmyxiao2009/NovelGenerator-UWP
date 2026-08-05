@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <RootNamespace>novelgen</RootNamespace>
+    <AssemblyName>NovelGenerator</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <ProjectGuid>{6F1D8C7A-3B5E-4D2A-9F8B-1A2B3C4D5E6F}</ProjectGuid>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>AppContainerExe</OutputType>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <AppxBundle>Never</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm|arm64</AppxBundlePlatforms>
+    <AppxBundleAutoResourcePackageQualifiers>Language</AppxBundleAutoResourcePackageQualifiers>
+    <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
+    <PackageCertificateKeyFile>NovelGenerator_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>BA2C6CAA5629CB38D69B0F48B8C4342BE572E5AB</PackageCertificateThumbprint>
+    <AppxPackageDir>$(MSBuildThisFileDirectory)bin\AppPackages\</AppxPackageDir>
+    <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <RuntimeIdentifiers>win10-x86-aot;win10-x64-aot;win10-arm-aot;win10-arm64-aot;win10-x86;win10-x64;win10-arm;win10-arm64</RuntimeIdentifiers>
+    <TargetFrameworkMoniker>.NETCore,Version=v5.0</TargetFrameworkMoniker>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.22621.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <SkipAppxManifestValidation>true</SkipAppxManifestValidation>
+    <AppxValidateAppxManifest>false</AppxValidateAppxManifest>
+    <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <!-- ARM64 要求最低版本 >= 10.0.16299.0（Fall Creators Update）；其它平台仍用全局 10240 -->
+    <!-- 注意：ARM64 强制使用 .NET Native（无 CoreCLR 调试运行时），UseDotNetNativeToolchain 设 false 无效 -->
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <!-- ARM64 要求最低版本 >= 10.0.16299.0；ARM64 强制使用 .NET Native（UseDotNetNativeToolchain 无效） -->
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\GuidanceDialog.cs" />
+    <Compile Include="Core\AppSettings.cs" />
+    <Compile Include="Core\DataManager.cs" />
+    <Compile Include="Core\TokenEstimator.cs" />
+    <Compile Include="Models\ApiProfile.cs" />
+    <Compile Include="Models\GenreModels.cs" />
+    <Compile Include="Models\WorldModels.cs" />
+    <Compile Include="Models\WorldSetting.cs" />
+    <Compile Include="Models\StorySkeleton.cs" />
+    <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\Composition.cs" />
+    <Compile Include="Models\ExportRecord.cs" />
+    <Compile Include="Models\AiReviewReport.cs" />
+    <Compile Include="Models\UserReviewDecision.cs" />
+    <Compile Include="Models\PipelineSnapshot.cs" />
+    <Compile Include="Models\PipelineState.cs" />
+    <Compile Include="Models\AppData.cs" />
+    <Compile Include="Models\Novel.cs" />
+    <Compile Include="Pipeline\StageContext.cs" />
+    <Compile Include="Pipeline\PipelineEvents.cs" />
+    <Compile Include="Pipeline\NovelPipeline.cs" />
+    <Compile Include="Pipeline\PipelineOrchestrator.cs" />
+    <Compile Include="Pipeline\PipelineHost.cs" />
+    <Compile Include="AI\ApiClient.cs" />
+    <Compile Include="AI\PromptRegistry.cs" />
+    <Compile Include="AI\GenrePresets.cs" />
+    <Compile Include="AI\AiGuidanceService.cs" />
+    <Compile Include="AI\Generation\Stage1_WorldSettingGenerator.cs" />
+    <Compile Include="AI\Generation\Stage2_SkeletonGenerator.cs" />
+    <Compile Include="AI\Generation\Stage3_ChapterGenerator.cs" />
+    <Compile Include="AI\Generation\Stage4_AiReviewPolisher.cs" />
+    <Compile Include="AI\Generation\Stage5_Composer.cs" />
+    <Compile Include="AI\Generation\VolumeBatchGenerator.cs" />
+    <Compile Include="AI\Generation\Stage6_Exporter.cs" />
+    <Compile Include="AI\RAG\Embedder.cs" />
+    <Compile Include="AI\RAG\WorldbookRetriever.cs" />
+    <Compile Include="Services\TxtExporter.cs" />
+    <Compile Include="Services\EpubExporter.cs" />
+    <Compile Include="Pages\Library\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Wizard\NewNovelPage.xaml.cs">
+      <DependentUpon>NewNovelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WorldView\WorldSettingPage.xaml.cs">
+      <DependentUpon>WorldSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WorldView\WorldEditPage.xaml.cs">
+      <DependentUpon>WorldEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Skeleton\SkeletonPage.xaml.cs">
+      <DependentUpon>SkeletonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Skeleton\SkeletonEditPage.xaml.cs">
+      <DependentUpon>SkeletonEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReviewGate1Page.xaml.cs">
+      <DependentUpon>ReviewGate1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings\ApiProfilesPage.xaml.cs">
+      <DependentUpon>ApiProfilesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings\ApiProfileEditPage.xaml.cs">
+      <DependentUpon>ApiProfileEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Generation\DirectoryPage.xaml.cs">
+      <DependentUpon>DirectoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Generation\BatchGenerationPage.xaml.cs">
+      <DependentUpon>BatchGenerationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Generation\ChapterGenerationPage.xaml.cs">
+      <DependentUpon>ChapterGenerationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Generation\ComposePage.xaml.cs">
+      <DependentUpon>ComposePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Generation\ExportPage.xaml.cs">
+      <DependentUpon>ExportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Pages\Library\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Wizard\NewNovelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WorldView\WorldSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WorldView\WorldEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Skeleton\SkeletonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Skeleton\SkeletonEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ReviewGate1Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Settings\ApiProfilesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Settings\ApiProfileEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Generation\DirectoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Generation\BatchGenerationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Generation\ChapterGenerationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Generation\ComposePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Generation\ExportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Logo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\SmallLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\SplashScreen.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\StoreLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\WideLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.14" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NovelGenerator_TemporaryKey.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Target Name="_OverrideTargetFrameworkMoniker" BeforeTargets="GetFrameworkPaths">
+    <PropertyGroup>
+      <TargetFrameworkMoniker>.NETCore,Version=v5.0</TargetFrameworkMoniker>
+    </PropertyGroup>
+  </Target>
+</Project>
